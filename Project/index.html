@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="shared/jQuery/external/jquery/jquery.js"></script>
+		<script type="text/javascript" src="shared/jQuery/jquery-ui.js"></script>
+		<script type="text/javascript">window.onload = function(){ $("#buttonWrapper > a").button();};</script>
+		
+		<link href="shared/jQuery/jquery-ui.css" type="text/css" rel="stylesheet">
+		<link href="shared/jQuery/jquery-ui.structure.css" type="text/css" rel="stylesheet">
+		<link href="shared/jQuery/jquery-ui.theme.css" type="text/css" rel="stylesheet">
+		<link href="shared/style.css" type="text/css" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
+
+		<title>Site Index</title>
+	</head>
+	
+	<body>
+		
+		<p id="pageTitle">Train Database Management System</p>
+
+		<p id="flatline"></p>
+
+		<p id="subtitle">select a view</p>
+
+		<div id="buttonWrapper">
+			<a href="view_passenger/passenger.html">Passenger</a>
+			<br/>
+			<a href="view_ticket_agent/ticket_agent.html">Ticket Agent</a>
+			<br/>
+			<a href="view_employee/employee.html">Employee</a>
+			<br/>
+			<a href="view_employee_manager/employee_manager.php">Employee Manager</a>
+			<br/>
+			<a href="view_train_manager/train_manager.html">Train Manager</a>
+			<br/>
+			<a href="#" class="viewButton">Head Office (unwritten)</a>
+			<br/>
+			<a href="view_super/super.html">Database Administrator</a>
+		</div>
+		
+		<div id="documentWrapper">
+			<a href="documents/design.pdf">Design Document</a>
+			<a href="documents/user_guide.pdf">User Guide</a>
+			<a href="documents/programmer_guide.pdf">Programmer Guide</a>
+		</div>
+	</body>
+</html>

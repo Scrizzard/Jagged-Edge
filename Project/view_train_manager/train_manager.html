@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- This is a Google hosted library for javascript called jQuery. Your computer must be online to fetch this library. -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="scheduler.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="scheduler.css">
+ 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+ 		
+		<title>Train Scheduler View</title>
+	</head>
+	
+	<body>
+		<p id="pageTitle">Train Management System: Train Scheduler View</p>
+		<p id="description">This view allows a manager to schedule and cancel future voyages.</p>
+		<div id="pageCenter">
+			
+			<p class="header">Schedule a New Voyage</p>
+			
+			<div class="inputGroup">
+				Route <select id="routeDDL"></select>
+				Engine <select id="engineDDL"></select>
+			</div>
+			
+			<p class="header">Departure Date</p>
+			
+			<div class="inputGroup">
+			Day <select id="dayDDL"></select>
+			Month <select id="monthDDL"></select>
+			Year <select id="yearDDL"></select>
+			</div>
+			
+			<p class="header">Departure Time</p>
+			
+			<div class="inputGroup">
+				Hour <select id="hourDDL"></select>
+				Minute <select id="minuteDDL"></select>
+			</div>
+			
+			<button id="submitButton" onclick="submitInsertQuery()">Submit</button>
+			
+			<p id="resultHeader"></p>
+	
+			<table id="resultTable">
+				<thead id="resultTableHead"></thead>
+				<tbody id="resultTableBody"></tbody>
+			</table>
+
+			
+		</div>
+	</body>
+</html>
