@@ -1,9 +1,13 @@
+var table = null;
+
 window.onload = function(){
+	$("button, #return").button();
+	
 	$.ajax({  
     	type: 'GET',  
     	url: 'fetch_names.php', 
     	success: function(result){
-    		console.log(result);
+    		console.log("result is" + result);
     		populateNames(result);}
     });
 };
@@ -47,8 +51,11 @@ function fetchVoyages(){
 
 function showTable(stringResult, justOwnTickets){
 	//parse the result we got from the PHP file into a JSON object for easy access
+	if(table != null){
+		table.destroy();
+	}
 	result = $.parseJSON(stringResult);
-	$("#resultTableBody").empty();
+	$(".displayTable > tbody").empty();
 	
 	//set up the table header and add it to our HTML page
 	headerString = "<tr><th>Route ID</th>" +
@@ -64,7 +71,7 @@ function showTable(stringResult, justOwnTickets){
 		headerString += "<th>Seat Number</th>";
 	}
 	
-	$("#resultTableHead").html(headerString);
+	$(".displayTable > thead").html(headerString);
 
 	//set up the table body by adding an HTML row for each tuple in our query result
 	for(i = 0; i < result.length; i++){
@@ -84,7 +91,7 @@ function showTable(stringResult, justOwnTickets){
 		}
 		
 		rowString += "</tr>";
-		$("#resultTableBody").append(rowString);
+		$(".displayTable > tbody").append(rowString);
 	}
 	
 	//set the table title
@@ -94,4 +101,7 @@ function showTable(stringResult, justOwnTickets){
 	else{
 		$("#resultHeader").html("The following voyages are scheduled:");		
 	}
+	
+	console.log("table should be loaded, applying DataTable");
+	table = $(".displayTable").DataTable({"bJQueryUI": true});
 }

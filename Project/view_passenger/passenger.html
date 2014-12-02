@@ -3,12 +3,13 @@
 	<head>
 		<script type="text/javascript" src="../shared/jQuery/external/jquery/jquery.js"></script>
 		<script type="text/javascript" src="../shared/jQuery/jquery-ui.js"></script>
+		<script type="text/javascript" src="../shared/DataTables/js/jquery.dataTables.js"></script>
 		<script type="text/javascript" src="passenger.js"></script>		
-		<script type="text/javascript">window.onload = function(){ $("button").button();};</script>
 		
 		<link href="../shared/jQuery/jquery-ui.css" type="text/css" rel="stylesheet">
 		<link href="../shared/jQuery/jquery-ui.structure.css" type="text/css" rel="stylesheet">
 		<link href="../shared/jQuery/jquery-ui.theme.css" type="text/css" rel="stylesheet">
+		<link href="../shared/DataTables/css/jquery.dataTables.css" type="text/css" rel="stylesheet">
 		<link href="../shared/style.css" type="text/css" rel="stylesheet">
 		<link type="../text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
  		
@@ -16,6 +17,9 @@
 	</head>
 	
 	<body>
+		
+		<a id="return" href="..">Return to Index</a>
+		
 		<p id="pageTitle">Train Management System: Passenger View</p>
 		<p id="subtitle">This view allows a user to see upcoming voyages and voyages for which they own a ticket.</p>
 		
@@ -31,9 +35,11 @@
 		
 		<p id="resultHeader"></p>
 		
-		<table id="resultTable">
-			<thead id="resultTableHead"></thead>
-			<tbody id="resultTableBody"></tbody>
-		</table>
+		<div id="displayTableWrapper">
+			<table class="displayTable">
+				<thead></thead>
+				<tbody></tbody>
+			</table>
+		</div>
 	</body>
 </html>

@@ -7,6 +7,10 @@ body{
 	background-color: #EEE;	
 }
 
+select, option{
+	color: black;
+}
+
 #pageTitle, #subtitle{
 	text-align: center;
 }
@@ -100,4 +104,29 @@ body{
 	font-weight: bold;
 	margin: 0, 0, 5px, 0;
 }
-``
+
+#displayTableWrapper{
+	width: 85%;
+	margin: 0 auto;
+}
+
+#resultHeader{
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-left: 8%;
+}
+
+/* DataTable css modification */
+
+.dataTable > tbody > tr > td{
+	border: 1px solid rgb(197, 213, 236);
+	color: black;
+}
+
+.DataTables_sort_icon{
+	display: inline;
+}
+
+.fg-button{
+	margin: 0 2px !important;
+}
