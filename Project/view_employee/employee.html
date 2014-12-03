@@ -1,9 +1,17 @@
 <!DOCTYPE html>
+
+<?php
+	include '../shared/db_connection.php';
+?>
+
 <html>
 	<head>
 		<script type="text/javascript" src="../shared/jQuery/external/jquery/jquery.js"></script>
 		<script type="text/javascript" src="../shared/jQuery/jquery-ui.js"></script>
-		<script type="text/javascript">$("#submitButton").button();</script>
+		
+		<script type="text/javascript">window.onload = function(){
+			$("#return").button();
+		};</script>
 		
 		<link href="../shared/jQuery/jquery-ui.css" type="text/css" rel="stylesheet">
 		<link href="../shared/jQuery/jquery-ui.structure.css" type="text/css" rel="stylesheet">
@@ -13,10 +21,14 @@
 	</head>
 	
 	<body>
+		
+		<a id="return" href="..">Return to Index</a>
+		
 		<p id="pageTitle">Employee Schedule</p>
 		<form class="inputForm" action="employee.php" method="post">
 			<p >Please enter your employee ID.</p>
 			<input type="text" name="employeeID">
 			<input id="submitButton" type="submit" value="Submit">
 		</form> 
-</body>
+	</body>
+</html>

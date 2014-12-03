@@ -2,52 +2,83 @@
 <html>
 	<head>
 		<!-- This is a Google hosted library for javascript called jQuery. Your computer must be online to fetch this library. -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript" src="scheduler.js"></script>
-		
-		<link rel="stylesheet" type="text/css" href="scheduler.css">
- 		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
- 		
+		<script type="text/javascript" src="../shared/jQuery/external/jquery/jquery.js"></script>
+		<script type="text/javascript" src="../shared/jQuery/jquery-ui.js"></script>
+		<script type="text/javascript" src="../shared/DataTables/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" src="train_manager.js"></script>
+
+		<link href="../shared/jQuery/jquery-ui.css" type="text/css" rel="stylesheet">
+		<link href="../shared/jQuery/jquery-ui.structure.css" type="text/css" rel="stylesheet">
+		<link href="../shared/jQuery/jquery-ui.theme.css" type="text/css" rel="stylesheet">
+		<link href="../shared/DataTables/css/jquery.dataTables.css" type="text/css" rel="stylesheet">
+		<link href="../shared/style.css" type="text/css" rel="stylesheet">
+		<link type="../text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
+
 		<title>Train Scheduler View</title>
 	</head>
-	
+
 	<body>
-		<p id="pageTitle">Train Management System: Train Scheduler View</p>
-		<p id="description">This view allows a manager to schedule and cancel future voyages.</p>
-		<div id="pageCenter">
-			
-			<p class="header">Schedule a New Voyage</p>
-			
+
+		<a id="return" href="..">Return to Index</a>
+
+		<p id="pageTitle">
+			Train Management System: Train Scheduler View
+		</p>
+		<p id="subtitle">
+			This view allows a manager to schedule and cancel future voyages.
+		</p>
+
+
+		<div id="newVoyageWrapper">
+			<p class="header">
+				Schedule a New Voyage
+			</p>
+	
 			<div class="inputGroup">
 				Route <select id="routeDDL"></select>
 				Engine <select id="engineDDL"></select>
 			</div>
-			
-			<p class="header">Departure Date</p>
-			
+	
+			<p class="minorHeader">
+				Departure Date
+			</p>
+	
 			<div class="inputGroup">
-			Day <select id="dayDDL"></select>
-			Month <select id="monthDDL"></select>
-			Year <select id="yearDDL"></select>
+				Day <select id="dayDDL"></select>
+				Month <select id="monthDDL"></select>
+				Year <select id="yearDDL"></select>
 			</div>
-			
-			<p class="header">Departure Time</p>
-			
+	
+			<p class="minorHeader">
+				Departure Time
+			</p>
+	
 			<div class="inputGroup">
 				Hour <select id="hourDDL"></select>
 				Minute <select id="minuteDDL"></select>
 			</div>
-			
-			<button id="submitButton" onclick="submitInsertQuery()">Submit</button>
-			
-			<p id="resultHeader"></p>
 	
-			<table id="resultTable">
-				<thead id="resultTableHead"></thead>
-				<tbody id="resultTableBody"></tbody>
-			</table>
+			<button id="submitButton" onclick="submitInsertQuery()">
+				Submit
+			</button>
+		</div>
 
-			
+		<div id="displayTableWrapper">
+			<table id="resultTable">
+				<thead>
+					<tr>
+						<th>Route ID</th>
+						<th>Start Station</th>
+						<th>End Station</th>
+						<th>Departure Date</th>
+						<th>Departure Time</th>
+						<th>Arrival Date</th>
+						<th>Arrival Time</th>
+						<th>Cost</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+			</table>
 		</div>
 	</body>
 </html>

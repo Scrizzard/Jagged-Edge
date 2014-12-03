@@ -18,18 +18,20 @@
 // add other tables to query and print out result using template below 
 
 	echo '<table>
-		<tr>
-			<th>Voyage</th> 
-			<th>Departure Date</th>
-			<th>Arrival Date</th>
-			<th>Duration</th>
-			<th>Engine</th>
-			<th>Cars Assigned</th>
-			<th>Staff Assigned</th>
-			<th>Add Staff?</th>
-			<th>Remove Staff?</th>
-		</tr>		
-		';
+		<thead>
+			<tr>
+				<th>Voyage</th> 
+				<th>Departure Date</th>
+				<th>Arrival Date</th>
+				<th>Duration</th>
+				<th>Engine</th>
+				<th>Cars Assigned</th>
+				<th>Staff Assigned</th>
+				<th>Add Staff?</th>
+				<th>Remove Staff?</th>
+			</tr>
+		</thead>
+		<tbody>';
 
 while ($row = mysql_fetch_object($result)) {		
 	echo '<tr>
@@ -53,9 +55,7 @@ while ($row = mysql_fetch_object($result)) {
 				</tr>';
 }
 
-echo '</table>';
-
-
+echo '</tbody></table>';
 
 function printAssignedCars($vid) {
 	$retval = '';
@@ -123,7 +123,7 @@ function printStaffToAdd($vid) {
 
 
 	$retval = '
-	<form action="index.php" method="post">
+	<form action="./employee_manager.php" method="post">
 		<input type="hidden" name="addEmployeeToVoyage" value="addEmployeeToVoyage"> 
 		<input type="hidden" name="voyageID" value="' . $vid . '"> 
 		<select name="employeeID">';
@@ -153,7 +153,7 @@ function printStaffToRemove($vid) {
 
 
 	$retval = '
-	<form action="index.php" method="post">
+	<form action="./employee_manager.php" method="post">
 		<input type="hidden" name="removeEmployeeFromVoyage" value="removeEmployeeFromVoyage"> 
 		<input type="hidden" name="voyageID" value="' . $vid . '"> 
 		<select name="employeeID">';

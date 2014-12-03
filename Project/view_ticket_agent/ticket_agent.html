@@ -4,11 +4,13 @@
 		
 		<script type="text/javascript" src="../shared/jQuery/external/jquery/jquery.js"></script>
 		<script type="text/javascript" src="../shared/jQuery/jquery-ui.js"></script>
+		<script type="text/javascript" src="../shared/DataTables/js/jquery.dataTables.js"></script>
 		<script type="text/javascript" src="ticket_agent.js"></script>
 		
 		<link href="../shared/jQuery/jquery-ui.css" type="text/css" rel="stylesheet">
 		<link href="../shared/jQuery/jquery-ui.structure.css" type="text/css" rel="stylesheet">
 		<link href="../shared/jQuery/jquery-ui.theme.css" type="text/css" rel="stylesheet">
+		<link href="../shared/DataTables/css/jquery.dataTables.css" type="text/css" rel="stylesheet">
 		<link href="../shared/style.css" type="text/css" rel="stylesheet">
 		<link type="../text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
  		
@@ -17,29 +19,75 @@
 		<title>Ticket Agent</title>
 	</head>
 	<body>
+		<a id="return" href="..">Return to Index</a>
+
 		<p id="pageTitle">Train Management System: Ticket Agent View</p>
 		<p id="subtitle">This view allows a manager to schedule and cancel future voyages.</p>
 		
-			<div id="accordion">
-				
-				<h3>View/Add/Remove Passengers</h3>
-				<div>
-					<table id="passengerTable"></table>
-				</div>
-				
-				<h3>View/Add/Remove Tickets</h3>
-				<div>
-					<table id="ticketTable"></table>
-				</div>
-				
-				<h3>View Voyages</h3>
-				<div>
-					<table id="voyageTable"></table>
-				</div>
-				
+		<div id="accordion">
+			
+			<h3>View and Remove Passengers</h3>
+			<div>
+				<table id="passengerTable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Nationality</th>
+							<th>Payment Type</th>
+							<th>Phone Number</th>
+							<th></th>
+						</tr>
+					</thead>
+					
+				</table>
 			</div>
 			
-		
+			<h3>View and Remove Tickets</h3>
+			<div>
+				<table id="ticketTable">
+					<thead>
+						<tr>
+							<th>Ticket ID</th>
+							<th>Passenger ID</th>
+							<th>Voyage ID</th>
+							<th>Car ID</th>
+							<th>Passenger Name</th>
+							<th>Departure Station</th>
+							<th>Arrival Station</th>
+							<th>Departure Date</th>
+							<th>Departure Time</th>
+							<th>Cost</th>
+							<th></th>
+						</tr>
+					</thead>					
+				</table>
+			</div>
+			
+			<h3>View Voyages</h3>
+			<div>
+				<table id="voyageTable">						
+					<thead>
+						<tr>
+							<th>Voyage ID</th>
+							<th>Route ID</th>
+							<th>Departure Date</th>
+							<th>Departure Time</th>
+							<th>Departure Station</th>
+							<th>Arrival Station</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			
+			<h3>Create Passenger</h3>
+			<div>
+			</div>			
+
+			<h3>Create Ticket</h3>
+			<div>
+			</div>
+			
 		</div>
 	</body>
 </html>

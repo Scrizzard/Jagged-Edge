@@ -102,6 +102,5 @@ function showTable(stringResult, justOwnTickets){
 		$("#resultHeader").html("The following voyages are scheduled:");		
 	}
 	
-	console.log("table should be loaded, applying DataTable");
 	table = $(".displayTable").DataTable({"bJQueryUI": true});
 }

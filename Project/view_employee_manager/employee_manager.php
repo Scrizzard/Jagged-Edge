@@ -5,7 +5,7 @@ create, update and delete Employee/Voyage schedule information.
 -->
 
 <?php
-	include '../DatabaseConnection.php';
+	include '../shared/db_connection.php';
 
 	// If there's a post request, process that before loading the rest of the page...
 
@@ -37,16 +37,20 @@ create, update and delete Employee/Voyage schedule information.
 	<head>
 		<script type="text/javascript" src="../shared/jQuery/external/jquery/jquery.js"></script>
 		<script type="text/javascript" src="../shared/jQuery/jquery-ui.js"></script>
+		<script type="text/javascript" src="../shared/DataTables/js/jquery.dataTables.js"></script>
+
 		<script type="text/javascript">
 		window.onload = function(){ 
 			$("#accordion").accordion();
-			$("#submitButton").button();
+			$("[type='submit'], #return").button();
+			$("table").DataTable({"bJQueryUI": true});			
 		};
 		</script>
 		
 		<link href="../shared/jQuery/jquery-ui.css" type="text/css" rel="stylesheet">
 		<link href="../shared/jQuery/jquery-ui.structure.css" type="text/css" rel="stylesheet">
 		<link href="../shared/jQuery/jquery-ui.theme.css" type="text/css" rel="stylesheet">
+		<link href="../shared/DataTables/css/jquery.dataTables.css" type="text/css" rel="stylesheet">
 		<link href="../shared/style.css" type="text/css" rel="stylesheet">
 		<link type="../text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
 		
@@ -55,6 +59,7 @@ create, update and delete Employee/Voyage schedule information.
 	
 	<body>
 
+		<a id="return" href="..">Return to Index</a>
 		<p id="pageTitle">Train Management System: Employee Scheduler View</p>
 		<p id="subtitle">View, Schedule, Add, and Delete Employees.</p>
 
@@ -81,7 +86,7 @@ create, update and delete Employee/Voyage schedule information.
 			
 			<h3>Add Employee</h3>
 			<div>
-				<form id="employeeForm" action="index.php" method="post">
+				<form id="employeeForm" action="./employee_manager.php" method="post">
 					<!-- what doe this do? -->
 					<input type="hidden" name="newEmployee" value="newEmployee">
 	

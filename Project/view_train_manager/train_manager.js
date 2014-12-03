@@ -1,6 +1,10 @@
-//TODO: get cars in here somehow
+
+var table;
 
 window.onload = function(){
+
+	$("button, #return").button();
+	table = $("#resultTable").DataTable({"bJQueryUI": true});
 
 	populateDDL("dayDDL", 1, 32);
 	populateDDL("monthDDL", 1, 13);
@@ -12,13 +16,13 @@ window.onload = function(){
 	
 	$.ajax({  
     	type: 'GET',  
-    	url: 'scheduler_routes.php', 
+    	url: 'fetch_routes.php', 
     	success: function(result){populateRoutes(result);}
     });
     
-    $.ajax({  
+    $.ajax({
     	type: 'GET',
-    	url: 'scheduler_engine.php', 
+    	url: 'fetch_engine.php', 
     	success: function(result){populateEngines(result);}
     });
 };
@@ -35,36 +39,24 @@ function fetchVoyages(){
 function showTable(stringResult){
 	//parse the result we got from the PHP file into a JSON object for easy access
 	result = $.parseJSON(stringResult);
-	$("#resultTableBody").empty();
-	
-	//set up the table header and add it to our HTML page
-	headerString = "<tr><th>Route ID</th>" +
-	"<th>Start Station</th>" +
-	"<th>End Station</th>" +
-	"<th>Departure Date</th>" +
-	"<th>Departure Time</th>" +
-	"<th>Arrival Date</th>" +
-	"<th>Arrival Time</th>" +
-	"<th>Cost</th>" +
-	"<th>Delete</th>";
-	
-	$("#resultTableHead").html(headerString);
+	table.clear();
 
 	//set up the table body by adding an HTML row for each tuple in our query result
 	for(i = 0; i < result.length; i++){
-		rowString = "<tr>";
-		rowString += "<td>" + result[i].routeID + "</td>";
-		rowString += "<td>" + result[i].stationOfOrigin + "</td>";
-		rowString += "<td>" + result[i].terminalStation + "</td>";
-		rowString += "<td>" + result[i].departureDate + "</td>";
-		rowString += "<td>" + result[i].departureTime + "</td>";
-		rowString += "<td>" + result[i].arrivalDate + "</td>";
-		rowString += "<td>" + result[i].arrivalTime + "</td>";
-		rowString += "<td>$" + result[i].cost + "</td>";
-		rowString += "<td><button onclick=\"deleteVoyage(" + result[i].id + ")\">X</button></td>";
-		rowString += "</tr>";
-		$("#resultTableBody").append(rowString);
+		newRow = [result[i].routeID,
+		result[i].stationOfOrigin,
+		result[i].terminalStation,
+		result[i].departureDate,
+		result[i].departureTime,
+		result[i].arrivalDate,
+		result[i].arrivalTime,
+		result[i].cost,
+		"<button onclick=\"deleteVoyage(" + result[i].id + ")\">X</button>"];
+
+		console.log(newRow);
+		table.row.add(newRow);
 	}
+	table.draw();
 }
 
 function populateRoutes(stringResult){

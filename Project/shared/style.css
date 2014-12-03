@@ -32,9 +32,13 @@ select, option{
 	margin: 0 auto 30px;
 }
 
-#buttonWrapper, #documentWrapper, #freeFormWrapper{
+#buttonWrapper, #documentWrapper, #freeFormWrapper, #newVoyageWrapper{
 	margin: 0 auto;
 	text-align: center;
+}
+
+#newVoyageWrapper{
+	padding-bottom: 40px;
 }
 
 #buttonWrapper > a{
@@ -85,8 +89,13 @@ select, option{
 	font-size: 1.5em;
 }
 
+.minorHeader{
+	font-size: 1.3em;
+}
+
 #accordion{
 	background-color: #EEE;
+	width: 85%;	
 }
 
 #employeeForm > div{
@@ -116,6 +125,10 @@ select, option{
 	margin-left: 8%;
 }
 
+.inputGroup{
+	padding-bottom: 10px;
+}
+
 /* DataTable css modification */
 
 .dataTable > tbody > tr > td{
@@ -130,3 +143,4 @@ select, option{
 .fg-button{
 	margin: 0 2px !important;
 }
+

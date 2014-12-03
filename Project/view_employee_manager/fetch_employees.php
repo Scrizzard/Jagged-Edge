@@ -10,13 +10,14 @@ if (!$result) {
 }				
 
 echo '<table>
-		<tr>
-			<th>Name</th>
-			<th>Title</th>
-			<th>Years of Employment</th>
-			<th>Delete?</th>
-		</tr>		
-		';
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Title</th>
+				<th>Years of Employment</th>
+				<th>Delete?</th>
+			</tr>
+		</thead><tbody>';
 
 while ($row = mysql_fetch_object($result)) {		
 	echo '<tr>
@@ -24,7 +25,7 @@ while ($row = mysql_fetch_object($result)) {
 					<td>' . $row->title . '</td>
 					<td>' . $row->yearsOfEmployment . '</td>
 					<td> 
-						<form action="index.php" method="post">
+						<form action="./employee_manager.php" method="post">
 							<input type="hidden" name="deleteEmployee" value="' . $row->id . '"> 
 							<input type="submit" value="Delete">
 						</form>
@@ -32,6 +33,6 @@ while ($row = mysql_fetch_object($result)) {
 				</tr>';
 }
 
-echo '</table>';
+echo '</tbody></table>';
 
 ?>
