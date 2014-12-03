@@ -32,9 +32,13 @@ select, option{
 	margin: 0 auto 30px;
 }
 
-#buttonWrapper, #documentWrapper, #freeFormWrapper, #newVoyageWrapper{
+#buttonWrapper, #documentWrapper, #freeFormWrapper, #newVoyageWrapper, #queryHeader, #queryString{
 	margin: 0 auto;
 	text-align: center;
+}
+
+#queryHeader{
+	font-weight: bold;
 }
 
 #newVoyageWrapper{
@@ -86,7 +90,8 @@ select, option{
 }
 
 .header{
-	font-size: 1.5em;
+	font-size: 1.3em;
+	font-weight: bold;
 }
 
 .minorHeader{

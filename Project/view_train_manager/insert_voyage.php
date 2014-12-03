@@ -1,7 +1,7 @@
 <?php
 
-mysql_connect("localhost", "root", "");
-mysql_select_db("tms");
+include '../shared/db_connection.php';
+
 
 //query the largest ID from the voyage relation
 //so we can ensure the inserted tuple will have a unique ID

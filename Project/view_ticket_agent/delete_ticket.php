@@ -1,7 +1,6 @@
 <?php
 
-mysql_connect("localhost", "root", "");
-mysql_select_db("tms");
+include '../shared/db_connection.php';
 
 $query = 
 	"DELETE	 

@@ -1,20 +1,21 @@
 <?php
 
-mysql_connect("localhost", "root", "");
-mysql_select_db("tms");
+include '../shared/db_connection.php';
 
 $query = 
-	"SELECT TicketPrice.voyageID, passengerID, name, TicketPrice.carID, price, PassengerTicket.id AS ticketID, seatNumber, departureDate, departureTime, stationOfOrigin, terminalStation
-	 FROM TicketPrice
-	 JOIN PassengerTicket
+	"SELECT TicketPrice.voyageID, passengerID, name, TicketPrice.carID, price, PassengerTicket.id, seatNumber, departureDate, departureTime, stationOfOrigin, terminalStation
+	 FROM PassengerTicket
+	 INNER JOIN Passenger
+	 ON PassengerTicket.passengerID = Passenger.id
+	 INNER JOIN TicketPrice
 	 ON TicketPrice.voyageID = PassengerTicket.voyageID AND TicketPrice.carID = TicketPrice.carID
-	 JOIN Voyage
+	 INNER JOIN Voyage
 	 ON Voyage.id = PassengerTicket.voyageID
-	 JOIN TrainRoute
-	 ON Voyage.id = TrainRoute.routeID
-	 JOIN Passenger
-	 ON PassengerTicket.passengerID = Passenger.id";
-
+	 INNER JOIN TrainRoute
+	 ON Voyage.id = TrainRoute.routeID";
+	 
+	 
+	 
 $result = mysql_query($query);
 
 if (!$result) {

@@ -117,17 +117,17 @@ function displayTicketTable(stringResult){
 	
 	for(i = 0; i < result.length; i++){
 		
-		newRow = [result[i].ticketID, 
-			result[i].passengerID, 
+		newRow = [result[i].id, 
+			result[i].passengerID,
 			result[i].voyageID, 
-			result[i].carID, 
+			result[i].carID,
 			result[i].name, 
 			result[i].stationOfOrigin, 
 			result[i].terminalStation, 
 			result[i].departureDate, 
 			result[i].departureTime, 
 			result[i].price, 
-			"<button onclick=\"deleteTicket(" + result[i].ticketID + ")\">X</button>"];
+			"<button onclick=\"deleteTicket(" + result[i].id + ")\">X</button>"];
 	
 		ticketTable.row.add(newRow);
  	}

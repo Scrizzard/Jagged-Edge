@@ -2,7 +2,7 @@
 	<head>
 		<script type="text/javascript" src="../shared/jQuery/external/jquery/jquery.js"></script>
 		<script type="text/javascript" src="../shared/jQuery/jquery-ui.js"></script>
-		<script type="text/javascript">window.onload = function(){ $("#submitButton").button();};</script>
+		<script type="text/javascript">window.onload = function(){ $("#return, [type='submit']").button();};</script>
 		
 		<link href="../shared/jQuery/jquery-ui.css" type="text/css" rel="stylesheet">
 		<link href="../shared/jQuery/jquery-ui.structure.css" type="text/css" rel="stylesheet">
@@ -11,13 +11,16 @@
 		<link type="../text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
 	</head>
 	<body>
-		<form action="test.php" method="post">
+		
+		<a id="return" href="..">Return to Index</a>
+		
+		<form action="super.php" method="post">
 			<p id="pageTitle">Database Administrator</p>
 			<p id="subtitle">Enter a Free-Form Query</p>
 			
 			<div id="freeFormWrapper">
 				<input type="text" name="query" size="100">
-				<input id="submitButton" type="submit">
+				<input type="submit">
 			</div>
 		</form>
 	</body>
